@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Registration Form</title>
+<style>
+    .container {
+        width: 500px;
+        margin: 30px auto;
+        border: 2px solid black;
+        padding: 20px;
+        background-color: rgb(215, 238, 131);
+    }
+    h1 {
+        text-align: center;
+        border: 2px solid rgb(199, 17, 17);
+        padding: 15px;
+        margin-bottom: 25px;
+    }
+    label {
+        display: inline-block;
+        width:120px;
+        margin-bottom: 10px;
+    }
+    input, select {
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .buttons {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Student Registration Form</h1>
+
+    <form>
+        <label>Name :</label>
+        <input type="text" placeholder="full Name in BLOCK LETTERS" style="width: 300px;" required><br>
+
+        <label>Father's Name :</label>
+        <input type="text" style="width: 300px;" required><br>
+
+        <label>Mother's Name :</label>
+        <input type="text" style="width: 300px;" required><br>
+
+        <label>Phone Number :</label>
+        <input type="text" placeholder="+91xxxxxxxx" style="width: 300px;" required><br>
+
+        <label>Email :</label>
+        <input type="email" placeholder="sample@gmail.com" style="width: 300px;" required><br>
+
+        <label>Gender :</label>
+        <input type="radio" name="gender" required> Male
+        <input type="radio" name="gender" required> Female
+        <input type="radio" name="gender" required> Other<br><br>
+
+        <label>Date Of Birth :</label>
+        <input type="date">
+        <br><br>
+
+        <label>Address :</label>
+        <textarea name="Address" placeholder="Address" style="width: 300px; height: 60px;"></textarea><br><br>
+
+        <label>Blood Group :</label>
+        <select>
+            <option>Select</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>O+</option>
+            <option>O-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+        </select><br><br>
+
+        <label>Department :</label>
+        <input type="radio" name="dept"> CSE
+        <input type="radio" name="dept"> ECE
+        <input type="radio" name="dept"> MECH
+        <input type="radio" name="dept"> CIVIL
+        <input type="radio" name="dept"> EEE<br><br>
+
+        <label>Course :</label>
+        <input type="checkbox"> C
+        <input type="checkbox"> C++
+        <input type="checkbox"> Java
+        <input type="checkbox"> AI&ML
+        <input type="checkbox"> Python<br><br>
+
+        <label>Photo :</label>
+        <input type="file"><br><br>
+
+        <div class="buttons">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
