@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Center</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: arial, sans-serif;
+            background: #f4f6f9;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            z-index: 1000;
+        }
+        .card-container {
+            display: grid;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            position: relative;
+            background: white;
+            width: 250px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        .card button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background: #3498db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .message {
+            display: none;
+            margin-top: 10px;
+            color: green;
+            visibility: hidden;
+        }
+        .card:hover .message {
+            display: block;
+            visibility: visible;
+        }
+        .help-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background: #da1c07;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        Notification Center
+    </header>
+    <div class="card-container">
+        <div class="card">
+            <div class="badge">1</div>
+            <h3>Message</h3>
+            <p>You have a new message!</p>
+            <button>View</button>
+            <div class="message">New Notification</div>
+        </div>
+
+        <div class="card">
+            <div class="badge">7</div>
+            <h3>Friend Request</h3>
+            <p>You have a new friend request!</p>
+            <button>View</button>
+            <div class="message">New Friend Request</div>
+        </div>
+
+        <div class="card">
+            <div class="badge">3</div>
+            <h3>Likes</h3>
+            <p>Your post was liked!</p>
+            <button>View</button>
+            <div class="message">New Like</div>
+        </div>
+    </div>
+
+    <button class="help-btn">Help</button>
+</body>
+</html>
