@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Fetch Task</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            background: #fff;
+            border-radius: 85px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 35px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn1 {
+            color: #333;
+            background: #235bf5;
+            color: #fff;
+        }
+
+        .btn1:hover {
+            background: #6488ff;
+        }
+
+        .btn2 {
+            color: #333;
+            background: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .btn2:hover {
+            background: #f6f4f4;
+        }
+
+        .hero {
+            height: 150vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 500;
+        }
+
+        .hero span {
+            font-style: italic;
+        }
+
+        .hero button {
+            margin-top: 20px;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 40px;
+            background: #1d4ed8;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background: #3b82f6;
+        }
+
+        .float-img {
+            position: absolute;
+            border-radius: 20px;
+            overflow: hidden;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .float-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .img1 {
+            top: 300px;
+            left: -20px;
+            width: 140px;
+            height: 140px;
+        }
+
+        .img2 {
+            top: 150px;
+            left: 150px;
+            width: 140px;
+            height: 140px;
+        }
+
+        .img3 {
+            top: 180px;
+            left: 45%;
+            width: 130px;
+            height: 130px;
+        }
+
+        .img4 {
+            top: 120px;
+            right: 200px;
+            width: 180px;
+            height: 120px;
+        }
+
+        .img5 {
+            top: 250px;
+            right: -20px;
+            width: 160px;
+            height: 160px;
+        }
+
+        .img6 {
+            bottom: 100px;
+            left: 100px;
+            width: 170px;
+            height: 200px;
+        }
+
+        .img7 {
+            bottom: 140px;
+            right: 45%;
+            width: 160px;
+            height: 120px;
+        }
+
+        .img8 {
+            bottom: 80px;
+            right: -30px;
+            width: 170px;
+            height: 200px;
+        }
+
+        .section {
+            padding: 80px 60px;
+            background: #f3f3f2;
+        }
+
+        .section h1 {
+            font-size: 56px;
+            font-weight: 500;
+            line-height: 1.2;
+            max-width: 700px;
+            margin-bottom: 80px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .stat-box {
+            flex: 1;
+        }
+
+        .stat-box:first-child {
+            border-left: 1px solid rgb(0, 0, 0, 0.2);
+            padding-left: 40px;
+        }
+
+        .stat-box:last-child {
+            border-left: 1px solid rgb(0, 0, 0, 0.2);
+            padding-left: 40px;
+        }
+
+        .stat-number {
+            font-size: 80px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .stat-text {
+            font-size: 20px;
+            color: #333;
+            max-width: 400px;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .btn3 {
+            background: #1d4ed8;
+            color: #fff;
+            border: none;
+            padding: 16px 20px;
+            border-radius: 40px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn3:hover {
+            background: #3b82f6;
+        }
+
+        .video-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .video-section h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #111827;
+        }
+
+        .video-container {
+            max-width: 1200px;
+            margin: auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        .tabs-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .tabs-section h1 {
+            font-size: 40px;
+        }
+
+        .tabs-section p {
+            max-width: 800px;
+            font-size: 20px;
+            margin: auto;
+            color: #6b7280;
+        }
+
+        input {
+            display: none;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 40px auto 20px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .tabs label {
+            flex: 1;
+            padding: 14px 10px;
+            cursor: pointer;
+            background: #f9fafb;
+            border-right: 1px solid #e5e7eb;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .tabs label:last-child {
+            border-right: none;
+        }
+
+
+        #tab1:checked~.tabs label[for="tab1"],
+        #tab2:checked~.tabs label[for="tab2"],
+        #tab3:checked~.tabs label[for="tab3"],
+        #tab4:checked~.tabs label[for="tab4"],
+        #tab5:checked~.tabs label[for="tab5"],
+        #tab6:checked~.tabs label[for="tab6"] {
+            background: white;
+            font-weight: 600;
+            box-shadow: inset 0 -2px 0 black;
+        }
+
+        .slider {
+            width: 1200px;
+            max-width: 95%;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            background: white;
+        }
+
+        .slides {
+            display: flex;
+            width: 600%;
+            transition: transform 0.6s ease;
+        }
+
+
+        .slide {
+            width: 100%;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+
+        }
+
+
+        .left img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .right {
+            text-align: left;
+            flex: 1;
+            width: 100%;
+        }
+
+        .right small {
+            color: #0d0d0e;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .right h2 {
+            margin: 10px 0;
+            font-size: 50px;
+            margin-top: 20px;
+        }
+
+        .right p {
+            color: #4b5563;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        .btn4 {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 18px;
+            background: #2563eb;
+            color: rgb(218, 27, 27);
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        .btn4:hover {
+            background: #3b82f6;
+        }
+
+        #tab1:checked~.slider .slides {
+            transform: translateX(0%);
+        }
+
+        #tab2:checked~.slider .slides {
+            transform: translateX(-16.666%);
+        }
+
+        #tab3:checked~.slider .slides {
+            transform: translateX(-33.333%);
+        }
+
+        #tab4:checked~.slider .slides {
+            transform: translateX(-50%);
+        }
+
+        #tab5:checked~.slider .slides {
+            transform: translateX(-66.666%);
+        }
+
+        #tab6:checked~.slider .slides {
+            transform: translateX(-83.333%);
+        }
+
+
+        .research {
+            background: rgb(197, 241, 236);
+            padding: 80px 100px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .left small {
+            font-size: 16px;
+            color: #111;
+        }
+
+        .left h1 {
+            font-size: 40px;
+            font-weight: 500;
+            margin-top: 15px;
+            line-height: 1.2;
+            max-width: 500px;
+        }
+
+        .right {
+            max-width: 420px;
+            text-align: left;
+        }
+
+        .right p {
+            font-size: 12px;
+            margin-bottom: 25px;
+        }
+
+        .right a {
+            text-decoration: none;
+            color: #000;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .right a:hover {
+            color: #444;
+        }
+
+        .stats1 {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+        }
+
+        .stat1 {
+            flex: 1;
+            padding: 0 40px;
+        }
+
+
+        .stat1:nth-child(1) {
+            border-left: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .stat1:nth-child(2) {
+            border-left: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .stat1:nth-child(3) {
+            border-left: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .stat1 h2 {
+            font-size: 80px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+
+        .stat1 p {
+            font-size: 20px;
+            max-width: 320px;
+            line-height: 1.4;
+        }
+
+
+        .partnerships {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80px;
+            padding: 80px 100px;
+        }
+
+        .image-box {
+            width: 520px;
+            height: 520px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            max-width: 500px;
+        }
+
+        .content small {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .content h1 {
+            font-size: 56px;
+            font-weight: 500;
+            margin: 15px 0 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #444;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btns {
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-outline {
+            color: #333;
+            background: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .btn-outline:hover {
+            background: #f6f4f4;
+        }
+
+        .btn-primary {
+            background: #1d4ed8;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #3b82f6;
+        }
+
+        .container-faq {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 40px;
+            gap: 40px;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        /* LEFT SIDE */
+        .left-faq {
+            width: 50%;
+        }
+
+        .left-faq h2 {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .left-faq p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 20px;
+        }
+
+        .btnn {
+            padding: 10px 18px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .right-faq {
+            width: 50%;
+        }
+
+        .item-faq {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        input {
+            display: none;
+        }
+
+        label {
+            display: block;
+            padding: 16px 18px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            font-size: 18px;
+        }
+
+        .faq-label::after {
+            content: "+";
+            position: absolute;
+            right: 20px;
+            font-size: 18px;
+        }
+
+        .content2 {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 18px;
+            font-size: 16px;
+            color: #444;
+            line-height: 1.5;
+            transition: all 0.3s ease;
+        }
+
+        input:checked+label+.content2 {
+            max-height: 200px;
+            padding: 15px 18px 18px;
+        }
+
+        input:checked+label {
+            border: 1px solid #5b7cff;
+            background: #f9faff;
+            border-radius: 12px;
+        }
+
+        input:checked+label::after {
+            content: "×";
+        }
+
+        .see-more {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .see-more button {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+            margin-left: 400px;
+        }
+
+        .cta p {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .cta button {
+            background: #2f5bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .cta button:hover {
+            background: #3b82f6;
+        }
+
+        .divider {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+
+        .blog-section {
+            max-width: 1300px;
+            margin: 150px auto 60px;
+            padding: 0 40px;
+            background: #fff;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 48px;
+
+        }
+
+        .blog-header .blog-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: #111;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .blog-header h2 {
+            font-size: 60px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 14px;
+            line-height: 1.1;
+        }
+
+        .blog-header p {
+            font-size: 20px;
+            color: #555;
+        }
+
+        .blog-cards {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .blog-card {
+            flex: 1;
+            min-width: 280px;
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.2s;
+        }
+
+        .blog-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 340px;
+            overflow: hidden;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.03);
+        }
+
+        .blog-card-content {
+            padding: 28px 28px 32px;
+        }
+
+        .blog-card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111;
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+
+        .blog-card-excerpt {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.55;
+            margin-bottom: 24px;
+        }
+
+        .blog-author {
+            font-size: 14px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 2px;
+        }
+
+        .blog-date {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .blog-see-more {
+            text-align: center;
+            margin-top: 44px;
+        }
+
+        .blog-see-more a {
+            display: inline-block;
+            padding: 12px 40px;
+            border: 1.5px solid #ccc;
+            border-radius: 50px;
+            font-size: 15px;
+            color: #111;
+            text-decoration: none;
+            font-weight: 500;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .blog-see-more a:hover {
+            border-color: #888;
+            background: #f9f9f9;
+        }
+
+        .footer {
+            background: rgb(245 213 255);
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 60px 100px;
+        }
+
+        .left-content h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .left-content p {
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .right-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .primary {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        .secondary {
+            background-color: transparent;
+            border: 1px solid #aaa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .subtext {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .divider {
+            height: 1px;
+            background: #aaa;
+            margin: 30px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            font-size: 13px;
+        }
+
+        .footer-grid h4 {
+            margin-bottom: 10px;
+        }
+
+        .footer-grid p {
+            margin: 6px 0;
+            cursor: pointer;
+        }
+
+        .logo1 {
+            margin-top: 60px;
+        }
+
+        .logo1 img {
+            width: 120px;
+        }
+
+        .bottom-buttons {
+            margin: 20px 0;
+        }
+
+        .bottom-buttons button {
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1px solid #999;
+            background: #eee;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .badge {
+            margin: 15px 0;
+        }
+
+        .badge img {
+            width: 220px;
+        }
+
+        .footer-last {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .copy {
+            font-size: 12px;
+        }
+
+        .icons i {
+            font-size: 18px;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://www.studyfetch.com/_next/image?url=%2Flogo-text-only.png&w=128&q=75" alt="logo">
+        </div>
+
+        <div class="nav-links">
+            <a href="#">Features</a>
+            <a href="#">Educators & Enterprise</a>
+            <a href="#">News</a>
+        </div>
+        <div>
+            <button class="btn btn1">Start for Free</button>
+            <button class="btn btn2">Login</button>
+
+        </div>
+
+    </div>
+    </div>
+
+    <section class="hero">
+
+        <div>
+            <h1>Learning that adapts<br>to <span>you</span></h1>
+            <button>Start learning</button>
+        </div>
+
+        <div class="float-img img1">
+            <img src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Fhero%2Fone.webp&w=640&q=75">
+        </div>
+
+        <div class="float-img img2">
+            <img src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Fhero%2Feight.webp&w=640&q=75">
+        </div>
+
+        <div class="float-img img3">
+            <img src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Fhero%2Fseven.webp&w=640&q=75">
+        </div>
+
+        <div class="float-img img4">
+            <img src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Fhero%2Fsix.webp&w=640&q=75">
+        </div>
+
+        <div class="float-img img5">
+            <img src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Fhero%2Ffive.webp&w=640&q=75">
+        </div>
+
+        <div class="float-img img6">
+            <img src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Fhero%2Ftwo.webp&w=640&q=75">
+        </div>
+
+        <div class="float-img img7">
+            <img src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Fhero%2Fthree.webp&w=640&q=75">
+        </div>
+
+        <div class="float-img img8">
+            <img src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Fhero%2Ffour.webp&w=1080&q=75">
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h1>The trusted AI learning platform for students.</h1>
+
+        <div class="stats">
+
+            <div class="stat-box">
+                <div class="stat-number">7M+</div>
+                <div class="stat-text">Users Worldwide</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-number">92%</div>
+                <div class="stat-text">
+                    of Frequent Active Users Reported Better Grades
+                </div>
+            </div>
+
+        </div>
+
+        <div class="btn-container">
+            <button class="btn3">Start for Free</button>
+        </div>
+
+    </section>
+
+    <section class="video-section">
+        <h4>Watch a Demo</h4>
+        <h1>How your notes become a complete<br> study system</h1>
+
+        <div class="video-container">
+            <video autoplay muted playsinline controls>
+                <source src="https://studyfetchcdn.studyfetch.com/trailer.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <section class="tabs-section">
+        <h4>Features</h4>
+        <h1>Unleash the power of your course<br>materials</h1>
+        <p>Upload your materials once and unlock a suite of tools designed to help you understand<br>
+            faster, retain longer, and stress less.</p>
+
+
+        <input type="radio" name="tab" id="tab1">
+        <input type="radio" name="tab" id="tab2">
+        <input type="radio" name="tab" id="tab3">
+        <input type="radio" name="tab" id="tab4">
+        <input type="radio" name="tab" id="tab5">
+        <input type="radio" name="tab" id="tab6">
+
+
+        <div class="tabs">
+            <label for="tab1">Study Plan</label>
+            <label for="tab2">Spark.E</label>
+            <label for="tab3">Tutor Me</label>
+            <label for="tab4">Live Lecture</label>
+            <label for="tab5">Notes</label>
+            <label for="tab6">Arcade</label>
+        </div>
+
+        <div class="slider">
+            <div class="slides">
+
+                <div class="slide">
+                    <div class="left"><img
+                            src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Ffeatures%2Fstudy-plan.png&w=640&q=75">
+                    </div>
+                    <div class="right">
+                        <small>Study Plan</small>
+                        <h2>Know exactly what comes next</h2>
+                        <p>Spark.E builds a personalized study schedule around your materials and deadlines, breaking
+                            everything into clear milestones so you always know exactly where to focus.</p>
+                        <a class="btn4">Start Now</a>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="left"><img
+                            src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Ffeatures%2Fsparke.png&w=640&q=75">
+                    </div>
+                    <div class="right">
+                        <small>Spark.E</small>
+                        <h2>Your AI tutor that actually knows your coursework</h2>
+                        <p>Trained on your uploaded notes and materials, Spark.E answers questions, generates quizzes,
+                            and explains concepts around the clock via chat or voice.</p>
+                        <a class="btn4">Start Now</a>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="left"><img
+                            src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Ffeatures%2Ftutor-me.png&w=640&q=75">
+                    </div>
+                    <div class="right">
+                        <small>Tutor Me</small>
+                        <h2>Learn at your own pace</h2>
+                        <p>Tutor Me adapts to how you study, sets goals, and guides you forward only when you're ready,
+                            giving you the experience of a personal tutor available whenever you need one.</p>
+                        <a class="btn4">Start Now</a>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="left"><img
+                            src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Ffeatures%2Flive-lecture.png&w=640&q=75">
+                    </div>
+                    <div class="right">
+                        <small>Live Lecture</small>
+                        <h2>Never miss a thing in class</h2>
+                        <p>-Live Lecture captures your notes in real time as you listen, so you can stay fully present
+                            and walk away with everything you need, no frantic typing required.</p>
+                        <a class="btn4">Start Now</a>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="left"><img
+                            src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Ffeatures%2Flive-lecture.png&w=640&q=75">
+                    </div>
+                    <div class="right">
+                        <small>Notes</small>
+                        <h2>Your materials, organized and ready to study.</h2>
+                        <p>Upload your PDFs, PowerPoints, videos, or slides and get clean, structured notes in seconds.
+                            Choose between summarized, in-depth, or comprehensive formats depending on how deep you need
+                            to go, and watch your materials transform into organized, study-ready content.</p>
+                        <a class="btn4">Start Now</a>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="left"><img
+                            src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Ffeatures%2Farcade.png&w=640&q=75">
+                    </div>
+                    <div class="right">
+                        <small>Challenge</small>
+                        <h2>Study hard, play harder</h2>
+                        <p>Arcade transforms your course materials into game-style challenges, making it easier and
+                            genuinely fun to retain what you've learned long after you close your notebook.</p>
+                        <a class="btn4">Start Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <section class="research">
+
+        <div class="top">
+
+            <div class="left">
+                <small>Research</small>
+                <h1>Finals season put us to the test. We passed.</h1>
+            </div>
+
+            <div class="right">
+                <p>*Based on a study of 1,000 StudyFetch students during December 2024 finals</p>
+                <a href="#">Read the Report ></a>
+            </div>
+
+        </div>
+
+        <div class="stats1">
+
+            <div class="stat1">
+                <h2>92%</h2>
+                <p>of regular active users reported grade improvements</p>
+            </div>
+
+            <div class="stat1">
+                <h2>85%</h2>
+                <p>of total users reported grade improvements</p>
+            </div>
+
+            <div class="stat1">
+                <h2>30%</h2>
+                <p>reduction is average study time reported</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="partnerships">
+
+        <div class="image-box">
+            <img src="https://www.studyfetch.com/_next/image?url=%2Flanding%2Fpartnerships_updated.png&w=1920&q=75"
+                alt="">
+        </div>
+
+        <div class="content">
+            <h4>Partnerships</h4>
+            <h1>Expanding access</h1>
+            <p>
+                StudyFetch partners with NVIDIA to expand access to AI education through workforce readiness programs.
+            </p>
+
+            <div class="buttons">
+                <button class="btns btn-outline">Learn more</button>
+                <button class="btns btn-primary">Get Started for Free</button>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="container-faq">
+
+        <div class="left-faq">
+            <h2>Frequently Asked Questions</h2>
+            <p>
+                Find answers about StudyFetch, how Spark.E works, and what we support
+            </p>
+            <button class="btnn">Contact Us</button>
+        </div>
+
+        <div class="right-faq">
+
+            <div class="item-faq">
+                <input type="radio" name="faq" id="q1" checked>
+                <label class="faq-label" for="q1">Will StudyFetch actually help me do better on my exams?</label>
+                <div class="content2">
+                    Yes. StudyFetch builds a personalized study plan from your materials,
+                    breaking them into an ordered sequence of topics so you learn things the right way.
+                    Instead of guessing what to review, you get flashcards, quizzes,
+                    practice tests, and more.
+                </div>
+            </div>
+
+            <div class="item-faq">
+                <input type="radio" name="faq" id="q2">
+                <label class="faq-label" for="q2">How does StudyFetch know what I need to study?</label>
+                <div class="content2">
+                    StudyFetch reads your materials and identifies the key topics,
+                    then organizes them into a study plan that tells you what to learn,
+                    in what order, and tracks what you've already covered. You always know exactly where you are and
+                    what to focus on next.
+                </div>
+            </div>
+
+            <div class="item-faq">
+                <input type="radio" name="faq" id="q3">
+                <label class="faq-label" for="q3">How do I know if I'm actually learning?</label>
+                <div class="content2">
+                    StudyFetch shows you which topics you've already covered and uses
+                    your study plan to surface what you still need to know. It organizes
+                    your materials into the most effective learning order, so you always know
+                    where you stand and what to focus on next.
+                </div>
+            </div>
+
+            <div class="item-faq">
+                <input type="radio" name="faq" id="q4">
+                <label class="faq-label" for="q4">What if my exam is tomorrow?</label>
+                <div class="content2">
+                    Your study plan has a cram mode that picks out the most important
+                    things you need to know for your exam. Even if you're starting
+                    the night before, you get the key concepts front and center
+                    so you can make the most of the time you have.
+                </div>
+            </div>
+
+            <div class="item-faq">
+                <input type="radio" name="faq" id="q5">
+                <label class="faq-label" for="q5">Who uses StudyFetch?</label>
+                <div class="content2">
+                    Top students are already using StudyFetch to prepare for
+                    the MCAT, NCLEX, LSAT, GMAT, board exams, AP exams, and everything in between.
+                    Whatever you're studying for, StudyFetch helps you study
+                    smarter and show up ready.
+                </div>
+            </div>
+
+            <div class="see-more">
+                <button>See more</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="cta">
+        <p>Still have questions? Try it yourself — it's free.</p>
+        <button class="btn5">Start for Free</button>
+    </div>
+
+
+    <section class="blog-section">
+        <div class="blog-header">
+            <span class="blog-label">Blog</span>
+            <h2>Uplifting learners</h2>
+            <p>Real students, real breakthroughs with Spark.E</p>
+        </div>
+        <div class="blog-cards">
+            <div class="blog-card">
+                <div class="blog-card-image">
+                    <img src="https://www.studyfetch.com/_next/image?url=https%3A%2F%2Fstudyfetchcdn.studyfetch.com%2Fblog-assets%2F1777077441176-y4p9ae1q.jpg&w=1080&q=75"
+                        alt="Studying smarter for finals">
+                </div>
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Your Guide to Studying Smarter, Not Harder for Finals Week</h3>
+                    <p class="blog-card-excerpt">Finals season is here. Here's how you can ace them!</p>
+                    <div class="blog-author">StudyFetch</div>
+                    <div class="blog-date">April 25, 2026</div>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-card-image">
+                    <img src="https://www.studyfetch.com/_next/image?url=https%3A%2F%2Fstudyfetchcdn.studyfetch.com%2Fblog-assets%2F1776388297814-sc7rf062.jpg&w=1080&q=75"
+                        alt="Spark.E text messaging feature">
+                </div>
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Spark.E Is Now a Text Message Away</h3>
+                    <p class="blog-card-excerpt">Text With Spark.E Is Now Live!</p>
+                    <div class="blog-author">StudyFetch</div>
+                    <div class="blog-date">April 17, 2026</div>
+                </div>
+            </div>
+        </div>
+        <div class="blog-see-more">
+            <a href="#">See more</a>
+        </div>
+    </section>
+
+
+    <div class="footer">
+        <div class="top-bar">
+            <div class="left-content">
+                <h1>Ready to transform how you study?</h1>
+                <p>Get tips on studying smarter and updates on new features</p>
+            </div>
+
+            <div class="right-buttons">
+                <button class="btn primary">Start for Free</button>
+                <button class="btn secondary">Login</button>
+            </div>
+        </div>
+
+
+        <div class="divider"></div>
+
+        <div class="footer-grid">
+            <div>
+                <h4>Website</h4>
+                <p>Home</p>
+                <p>Login</p>
+                <p>Sign Up</p>
+            </div>
+
+            <div>
+                <h4>Company</h4>
+                <p>Blog</p>
+                <p>FAQ</p>
+                <p>Privacy Policy</p>
+                <p>Terms of Service</p>
+                <p>Enterprise Terms</p>
+                <p>Status</p>
+                <p>Join the Team</p>
+            </div>
+
+            <div>
+                <h4>Helpful</h4>
+                <p>Email Support</p>
+                <p>Feedback</p>
+                <p>Question Bank</p>
+                <p>Documentation</p>
+                <p>Creators</p>
+            </div>
+
+            <div>
+                <h4>Educators & Institutions</h4>
+                <p>For Teachers</p>
+                <p>For Institutions</p>
+                <p>Our Mission</p>
+                <p>Our Principles</p>
+                <p>For Parents</p>
+                <p>Accelerate the workforce</p>
+                <p>Honen</p>
+            </div>
+
+            <div>
+                <h4>Use Cases</h4>
+                <p>AI Writing Assistance</p>
+                <p>Document Summarization</p>
+                <p>Flashcard Generation</p>
+                <p>Quiz and Test Preparation</p>
+                <p>Subject-Specific AI Study Aids</p>
+                <p>Video Learning Tools</p>
+                <p>PDF to Brainrot</p>
+                <p>Games - PDF to Game</p>
+                <p>Explainer Videos</p>
+            </div>
+
+            <div>
+                <h4>Our Features</h4>
+                <p>Notes AI</p>
+                <p>Flashcards AI</p>
+                <p>AI Quizzes</p>
+                <p>Spark.E AI</p>
+                <p>Text Spark.E</p>
+                <p>Spark.E Visuals</p>
+                <p>Record Live Lecture</p>
+                <p>Essay Grader</p>
+                <p>Audio Recap</p>
+                <p>Call With Spark.e</p>
+                <p>Explainer Video</p>
+                <p>PDF to Game</p>
+            </div>
+        </div>
+
+        <div class="logo1">
+            <img src="https://www.studyfetch.com/_next/image?url=%2Flogo-text-only.png&w=128&q=75" alt="logo1">
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bottom">
+
+            <div class="bottom-buttons">
+                <button><i class="fa-solid fa-globe"></i> English (US)</button>
+                <button><i class="fa-solid fa-gear"></i> Show Accessibility Settings</button>
+            </div>
+
+            <div class="badge">
+                <img src="https://uploads.onecompiler.io/44gk25sgc/44nfjm68m/IMG-20260506-WA0001.jpg" alt="badges">
+            </div>
+
+            <div class="footer-last">
+                <div class="copy">
+                    © 2026 StudyFetch Inc. All Rights Reserved.
+                </div>
+
+                <div class="icons">
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
