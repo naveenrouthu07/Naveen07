@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loops</title>
+</head>
+
+<body>
+
+    <script>
+        // students attendence system
+
+        let students = ["dhoni", "virat", "rohit", "sachin", "yuvraj"];
+        for (let student of students) {
+            document.write("Attendance Marked for " + student + "<br>");
+        }
+    </script>
+    <br>
+    <script>
+        // online shopping products
+
+        let products = ["laptop", "mobile", "headphones", "smartwatch", "camera"];
+        for (let product of products) {
+            document.write("Available Product: " + product + "<br>");
+        }
+    </script>
+    <br>
+    <script>
+        // Employee welcome messages
+
+        let employees = ["Ravi", "Naveen", "sai", "jai", "koti"];
+        for (let employee of employees) {
+            document.write("Welcome " + employee + " to the team!<br>");
+        }
+    </script>
+    <br>
+    <script>
+        // Movie Ticket Booking
+
+        for (let i = 1; i <= 10; i++) {
+            document.write("seat" + i + " booked<br>");
+        }
+    </Script>
+    <br>
+    <script>
+        // Food Delivery Orders
+
+        let orders = ["order1", "order2", "order3", "order4", "order5"];
+        for (let order of orders) {
+            document.write("Delivering " + order + "<br>");
+        }
+    </script>
+    <br>
+    <script>
+        // Mobile Contacts
+
+        let contacts = ["koti", "naveen", "ravi", "sai", "jai"];
+        for (let contact of contacts) {
+            document.write("calling " + contact + "<br>");
+        }
+    </script>
+    <br>
+    <script>
+        //Whatsapp Broadcast Messages
+
+        let users = ["koti", "naveen", "ravi", "sai", "jai"];
+        for (let user of users) {
+            document.write("message sent to " + user + "<br>");
+        }
+    </script>
+    <br>
+    <script>
+        //youtube playlist
+
+        let videos = ["HTML tutorial", "CSS tutorial", "JavaScript tutorial", "React tutorial", "Node.js tutorial"];
+        for (let video of videos) {
+            document.write("Now Playing " + video + "<br>");
+        }
+    </script>
+    <br>
+    <script>
+        //ATM Withdrawal System
+
+        let balance = 1000;
+        while (balance >= 0) {
+            document.write("balance: " + balance + "<br>");
+            balance -= 200;
+        }
+    </script>
+    <br>
+    <script>
+        //Bus Journey Tracker
+
+        for (let stop = 1; stop <= 5; stop++) {
+            document.write("Reached stop " + stop + "<br>");
+        }
+    </script>
+    <br>
+    <script>
+        //Student Result Processing
+
+        let students1 = ["dhoni", "virat", "rohit", "sachin", "yuvraj"];
+        for (let student of students1) {
+            document.write("checking result for " + student + "<br>");
+        }
+        document.write("All Results Published Successfully");
+
+    </script>
+    <br><br>
+    <script>
+        //Roll Number Verification
+
+        for (let roll = 1; roll <= 20; roll++) {
+            if (roll % 2 === 0) {
+                document.write("student" + roll + " is Even Number<br>");
+            } else {
+                document.write("student" + roll + " is Odd Number<br>");
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>
