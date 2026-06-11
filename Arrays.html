@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <script>
+        //dataset:1 movies
+
+        const movies = [
+            { id: 1, title: "Bahubali", rating: 9 },
+            { id: 2, title: "Pushpa", rating: 8 },
+            { id: 3, title: "RRR", rating: 10 },
+            { id: 4, title: "Salaar", rating: 7 }
+        ];
+
+        //movie titles
+
+        const movieTitles = movies.map(movie => movie.title);
+        console.log(movieTitles);
+
+        //movie ratings
+
+        const movieRatings = movies.map(movie => movie.rating);
+        console.log(movieRatings);
+
+        //increase ratings by 1
+
+        const increasedRatings = movies.map(movie => movie.rating + 1);
+        console.log(increasedRatings);
+
+        //movie rating greater than 8
+
+        const ratingAbove8 = movies.filter(movie => movie.rating > 8);
+        console.log(ratingAbove8);
+
+        //movie rating less than 9
+
+        const ratingBelow9 = movies.filter(movie => movie.rating < 9);
+        console.log(ratingBelow9);
+
+        //movie with ID3
+
+        const moviewithID3 = movies.find(movie => movie.id === 3);
+        console.log(moviewithID3);
+
+        //movie title with Pushpa
+
+        const movieWithTitlePushpa = movies.find(movie => movie.title === "Pushpa");
+        console.log(movieWithTitlePushpa);
+
+        //total movie ratings
+        
+        const totalRatings = movies.reduce((total, movie) => total + movie.rating, 0);
+        console.log(totalRatings);
+
+        //dataset2: products
+        const products = [
+            { id: 1, name: "Laptop", price: 50000 },
+            { id: 2, name: "Mouse", price: 500 },
+            { id: 3, name: "Keyboard", price: 1500 },
+            { id: 4, name: "Monitor", price: 12000 }
+        ];
+
+        //product names
+        const productNames = products.map(product => product.name);
+        console.log(productNames);
+
+        //product prices
+        const productPrices = products.map(product => product.price);
+        console.log(productPrices);
+
+        //increase price by 1000
+
+        const increasedPrices = products.map(product => product.price + 1000);
+        console.log(increasedPrices);
+
+        //products with price greater than 1000
+
+        const productsAbove1000 = products.filter(product => product.price > 1000);
+        console.log(productsAbove1000);
+
+        //products with price less than 10000
+
+        const productsBelow10000 = products.filter(product => product.price < 10000);
+        console.log(productsBelow10000);
+
+        //product with ID2
+
+        const productWithID2 = products.find(product => product.id === 2);
+        console.log(productWithID2);
+
+        //product with name Monitor
+
+        const productWithNameMonitor = products.find(product => product.name === "Monitor");
+        console.log(productWithNameMonitor);
+
+        //total price of products
+
+        const totalPrice = products.reduce((total, product) => total + product.price, 0);
+        console.log(totalPrice);
+
+        //dataset3: cricker scores
+        const scores = [45, 80, 20, 100, 60];
+
+        //add 10 runs to every score
+
+        const add10 = scores.map(score => score + 10);
+        console.log(add10);
+
+        //add 5 runs to every score
+
+        const add5 = scores.map(score => score + 5);
+        console.log(add5);
+
+        // all scores greater than 50
+
+        const scoresAbove50 = scores.filter(score => score > 50);
+        console.log(scoresAbove50);
+
+        //scores greater than equal to 80
+
+        const scoreGreater80 = scores.filter(score => score >= 80);
+        console.log(scoreGreater80);
+
+        //first score greater than 70
+
+        const first70 = scores.find(score => score > 70);
+        console.log(first70);
+
+        //total runs
+
+        const totalRuns = scores.reduce((sum, score) => sum + score, 0);
+        console.log(totalRuns);
+
+        //average score
+
+        const averageScore = totalRuns / scores.length;
+        console.log(averageScore);
+
+        //dataset4: students
+        const students = [
+            { name: "Ravi", marks: 90 },
+            { name: "Priya", marks: 75 },
+            { name: "Rahul", marks: 40 },
+            { name: "Anu", marks: 95 }
+        ];
+
+        //student names
+
+        const studentNames = students.map(student => student.name);
+        console.log(studentNames);
+
+        //student marks
+
+        const studentMarks = students.map(student => student.marks);
+        console.log(studentMarks);
+
+        //add 5 marks to every student
+
+        const addedMarks = students.map(student => student.marks + 5);
+        console.log(addedMarks);
+
+        //scored above 80
+
+        const above80 = students.filter(student => student.marks > 80);
+        console.log(above80);
+
+        //scored below 50
+
+        const below50 = students.filter(student => student.marks < 50);
+        console.log(below50);
+
+        //student with name rahul
+
+        const rahul = students.find(student => student.name === "Rahul");
+        console.log(rahul);
+
+        //first scored above 90
+
+        const above90 = students.find(student => student.marks > 90);
+        console.log(above90);
+
+        //total marks
+
+        const totalMarks = students.reduce((sum, student) => sum + student.marks, 0);
+        console.log(totalMarks);
+
+
+        //dataset5: food orders
+
+        const foodOrders = [
+            { item: "Pizza", price: 300 },
+            { item: "Burger", price: 150 },
+            { item: "Biryani", price: 250 },
+            { item: "Ice Cream", price: 100 }
+        ];
+
+        // food item names
+
+        const foodItems = foodOrders.map(food => food.item);
+        console.log(foodItems);
+
+        // food prices
+
+        const foodPrices = foodOrders.map(food => food.price);
+        console.log(foodPrices);
+
+        // add 50 price to every item
+
+        const add50 = foodOrders.map(food => food.price + 50);
+        console.log(add50);
+
+        //food prices above 200
+
+        const above200 = foodOrders.filter(food => food.price > 200);
+        console.log(above200);
+
+        // food prices below 250
+
+        const below250 = foodOrders.filter(food => food.price < 250);
+        console.log(below250);
+
+        // food item named with biryani
+
+        const biryani = foodOrders.find(food => food.item === "Biryani");
+        console.log(biryani);
+
+        // first food item more than 250
+
+        const firstAbove250 = foodOrders.find(food => food.price > 250);
+        console.log(firstAbove250);
+
+        // total food bill
+
+        const totalFoodBill = foodOrders.reduce((sum, food) => sum + food.price, 0);
+        console.log(totalFoodBill);
+
+
+        // bonus Tasks....
+
+        // movie titles in UPPERCASE
+
+        const upperMovieTitles = movies.map(movie => movie.title.toUpperCase());
+        console.log(upperMovieTitles);
+
+        // Product Names in lowercase
+
+        const lowerProductNames = products.map(product => product.name.toLowerCase());
+        console.log(lowerProductNames);
+
+        //Student name starts with "R"
+
+        const nameR = students.filter(student => student.name.startsWith("R"));
+        console.log(nameR);
+
+        //movies title length above 5
+
+        const titleAbove5 = movies.filter(movie => movie.title.length > 5);
+        console.log(titleAbove5);
+
+        //combinedTotal
+
+        const combinedTotal = scores.reduce((sum, score) => sum + score, 0) + students.reduce((sum, student) => sum + student.marks, 0);
+        console.log(combinedTotal);
+
+        // most expensive product.
+        const mostExpensive = products.reduce((max, product) => product.price > max.price ? product : max, products[0]);
+        console.log(mostExpensive);
+
+        //highest cricket score.
+        const highestScore = Math.max(...scores);
+        console.log(highestScore);
+
+        // student with the highest marks.
+        const topStudent = students.reduce((max, student) => student.marks > max.marks ? student : max, students[0]);
+        console.log(topStudent);
+
+        //movie with the highest rating.
+        const topMovie = movies.reduce((max, movie) => movie.rating > max.rating ? movie : max, movies[0]);
+        console.log(topMovie);
+
+    </script>
+
+    <script>
+        // Create your own dataset and write 5 custom operations on it.
+        const cricketers = [
+            { name: "MS Dhoni", age: 44, country: "India" },
+            { name: "Buttler", age: 35, country: "England" },
+            { name: "Smith", age: 38, country: "Australia" },
+            { name: "Gayle", age: 46, country: "West Indies" }
+        ];
+
+        const cricketerNames = cricketers.map(crickter => crickter.name);
+        console.log(cricketerNames);
+
+        const cricketerCountry = cricketers.map(crickter => crickter.country);
+        console.log(cricketerCountry);
+
+        const cricketerAge = cricketers.filter(crickter => crickter.age > 30);
+        console.table(cricketerAge);
+
+        const cricketerByCountry = cricketers.find(crickter => crickter.country === "India");
+        console.log(cricketerByCountry);
+
+        const cricketerByAge = cricketers.find(crickter => crickter.age === 35);
+        console.log(cricketerByAge);
+
+    </script>
+</body>
+
+</html>
