@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Pricing</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .ticket-box {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 340px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus, select:focus {
+            border-color: #47e73c;
+        }
+
+        button {
+            background-color: #42e73c;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            min-height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ticket-box">
+        <h1>Movie Ticket Pricing</h1>
+        
+        <label for="ageInput">Enter Age:</label>
+        <input type="number" id="ageInput">
+
+        <label for="showtimeSelect">Select Showtime:</label>
+        <select id="showtimeSelect">
+            <option value="matinee">Matinee (Daytime)</option>
+            <option value="evening">Evening</option>
+        </select>
+
+        <button onclick="checkEligibility()">Check Pricing</button>
+        
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkEligibility() {
+            let age = document.getElementById('ageInput').value;
+            let showtime = document.getElementById('showtimeSelect').value;
+            let resultParagraph = document.getElementById('result');
+            
+            if (isNaN(age) || age <= 0) {
+                resultParagraph.textContent = "Please enter a valid, logical age.";
+                resultParagraph.style.color = "#dc3545";
+            }
+
+            else if (age < 12) {
+                resultParagraph.textContent = "Ticket Price: $5 (Child Discount $5)";
+                resultParagraph.style.color = "#28a745";
+            } 
+
+            else if (age >= 65) {
+                resultParagraph.textContent = "Ticket Price: $7 (Senior Discount $3)";
+                resultParagraph.style.color = "#28a745";
+            } 
+
+            else if (showtime === "matinee") {
+                resultParagraph.textContent = "Ticket Price: $10 (ssMatinee)";
+                resultParagraph.style.color = "#2c3e50";
+            } 
+
+            else {
+                resultParagraph.textContent = "Ticket Price: $15 (Evening Premium)";
+                resultParagraph.style.color = "#2c3e50";
+            }
+        }
+    </script>
+
+</body>
+</html>
