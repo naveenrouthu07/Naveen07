@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Follow Card</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url(https://images7.alphacoders.com/101/thumb-1920-1017006.png);
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: 500;
+            color: #03010c;
+            margin-bottom: 24px;
+            transition: color 0.2s ease;
+        }
+
+        .card {
+            background-color: #ffffff;
+            width: 280px;
+            padding: 30px 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+        }
+
+        .name {
+            margin: 0 0 4px 0;
+            font-size: 22px;
+            font-weight: 700;
+            color: #262626;
+        }
+
+        .username {
+            margin: 0 0 20px 0;
+            font-size: 14px;
+            color: #8e8e8e;
+        }
+
+        .follow-btn {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #ffffff;
+            background-color: #007fff;
+            transition: background-color 0.2s ease;
+        }
+
+        .follow-btn.following {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="title" id="stateTitle">Initial State - Follow</div>
+
+    <div class="card">
+        <img src="/Tasks/25-04-26/assets/profile.jpeg" alt="image" class="profile-img">
+        <h2 class="name">Naveen Kumar</h2>
+        <p class="username">@Naveen</p>
+        <button class="follow-btn" id="followBtn" onclick="toggleFollow()">Follow</button>
+    </div>
+
+    <script>
+        function toggleFollow() {
+            const btn = document.getElementById('followBtn');
+            const title = document.getElementById('stateTitle');
+
+            if (btn.textContent === 'Follow') {
+                btn.textContent = 'Following';
+                btn.classList.add('following');
+                title.textContent = 'Active State - Following';
+            } else {
+                btn.textContent = 'Follow';
+                btn.classList.remove('following');
+                title.textContent = 'Initial State - Follow';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
